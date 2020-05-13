@@ -1,7 +1,5 @@
 import React from "react";
 import Head from "next/head";
-import styles from "./layout.module.css";
-import utilStyles from "../styles/utils.module.css";
 import Link from "next/link";
 
 const name = "[Your Name]";
@@ -13,7 +11,7 @@ interface LayoutProps {
 }
 
 const Layout = ({ children, home }: LayoutProps): JSX.Element => (
-  <div className={styles.container}>
+  <div>
     <Head>
       <link rel="icon" href="/favicon.ico" />
       <meta
@@ -29,30 +27,22 @@ const Layout = ({ children, home }: LayoutProps): JSX.Element => (
       <meta name="og:title" content={siteTitle} />
       <meta name="twitter:card" content="summary_large_image" />
     </Head>
-    <header className={styles.header}>
+    <header>
       {home ? (
         <>
-          <img
-            src="/images/profile.jpg"
-            className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
-            alt={name}
-          />
-          <h1 className={utilStyles.heading2Xl}>{name}</h1>
+          <img src="/images/profile.jpg" alt={name} />
+          <h1>{name}</h1>
         </>
       ) : (
         <>
           <Link href="/">
             <a>
-              <img
-                src="/images/profile.jpg"
-                className={`${styles.headerImage} ${utilStyles.borderCircle}`}
-                alt={name}
-              />
+              <img src="/images/profile.jpg" alt={name} />
             </a>
           </Link>
-          <h2 className={utilStyles.headingLg}>
+          <h2>
             <Link href="/">
-              <a className={utilStyles.colorInherit}>{name}</a>
+              <a>{name}</a>
             </Link>
           </h2>
         </>
@@ -60,7 +50,7 @@ const Layout = ({ children, home }: LayoutProps): JSX.Element => (
     </header>
     <main>{children}</main>
     {!home && (
-      <div className={styles.backToHome}>
+      <div>
         <Link href="/">
           <a>← Back to home</a>
         </Link>

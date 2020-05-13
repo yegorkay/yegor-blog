@@ -1,9 +1,14 @@
 import React from "react";
-import "../styles/global.css";
+import { ThemeProvider } from "theme-ui";
 import { AppProps } from "next/app";
+import { Global } from "@emotion/core";
+import { theme, globalStyles } from "./theme";
 
-function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
-}
+const App = ({ Component, pageProps }: AppProps): JSX.Element => (
+  <ThemeProvider theme={theme}>
+    <Global styles={globalStyles} />
+    <Component {...pageProps} />
+  </ThemeProvider>
+);
 
 export default App;
