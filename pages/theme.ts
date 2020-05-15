@@ -8,20 +8,40 @@ export const theme: Theme = {
     monospace: "Menlo, monospace",
   },
   colors: {
-    text: "#333333",
-    background: "white",
-    primary: "white",
+    text: "hsl(0, 0%, 20%)",
+    background: "	hsl(0, 0%, 100%)",
+    primary: "hsl(0, 0%, 100%)",
   },
-  sizes: {
-    full: "1024px",
+  space: {
+    xxs: 4,
+    xs: 8,
+    sm: 12,
+    md: 16,
+    lg: 24,
+    xl: 32,
+    xxl: 48,
   },
-  radii: {
-    hard: 2,
-    medium: 4,
-    soft: 8,
-  },
-  shadows: {
-    card: "2px 9px 13px -2px rgba(51,51,51,0.20)",
+  fontSizes: {
+    sm: {
+      base: 12,
+      tall: 14,
+    },
+    md: {
+      base: 16,
+      tall: 18,
+    },
+    lg: {
+      base: 20,
+      tall: 24,
+    },
+    xl: {
+      base: 30,
+      tall: 36,
+    },
+    xxl: {
+      base: 48,
+      tall: 60,
+    },
   },
 };
 
@@ -31,14 +51,18 @@ type GlobalTheme = {
   };
   body: {
     background: string;
+    fontFamily: string;
+    color: string;
   };
 };
 
-export const globalStyles = (globalTheme: Theme): GlobalTheme => ({
+export const globalStyles = (theme: Theme): GlobalTheme => ({
   "*": {
     boxSizing: "border-box",
   },
   body: {
-    background: globalTheme.colors.text,
+    fontFamily: theme.fonts["body"],
+    background: theme.colors.background,
+    color: theme.colors.text,
   },
 });

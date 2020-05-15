@@ -1,3 +1,5 @@
+/** @jsx jsx */
+import { jsx } from "theme-ui";
 import React from "react";
 import Head from "next/head";
 import Link from "next/link";
@@ -31,7 +33,13 @@ const Layout = ({ children, home }: LayoutProps): JSX.Element => (
       {home ? (
         <>
           <img src="/images/profile.jpg" alt={name} />
-          <h1>{name}</h1>
+          <h1
+            sx={{
+              fontSize: "xl.tall",
+            }}
+          >
+            {name}
+          </h1>
         </>
       ) : (
         <>
